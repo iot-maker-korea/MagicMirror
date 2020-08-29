@@ -10,24 +10,24 @@
 
 var config = {
 	address: "localhost", 	// Address to listen on, can be:
-							// - "localhost", "127.0.0.1", "::1" to listen on loopback interface
-							// - another specific IPv4/6 to listen on a specific interface
-							// - "0.0.0.0", "::" to listen on any interface
-							// Default, when address config is left out or empty, is "localhost"
+	// - "localhost", "127.0.0.1", "::1" to listen on loopback interface
+	// - another specific IPv4/6 to listen on a specific interface
+	// - "0.0.0.0", "::" to listen on any interface
+	// Default, when address config is left out or empty, is "localhost"
 	port: 8080,
 	basePath: "/", 	// The URL path where MagicMirror is hosted. If you are using a Reverse proxy
-					// you must set the sub path here. basePath must end with a /
+	// you must set the sub path here. basePath must end with a /
 	ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1"], 	// Set [] to allow all IP addresses
-															// or add a specific IPv4 of 192.168.1.5 :
-															// ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
-															// or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
-															// ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
+	// or add a specific IPv4 of 192.168.1.5 :
+	// ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
+	// or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
+	// ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
 
 	useHttps: false, 		// Support HTTPS or not, default "false" will use HTTP
 	httpsPrivateKey: "", 	// HTTPS private key path, only require when useHttps is true
 	httpsCertificate: "", 	// HTTPS Certificate path, only require when useHttps is true
 
-	language: "en",
+	language: "ko",
 	logLevel: ["INFO", "LOG", "WARN", "ERROR"],
 	timeFormat: 24,
 	units: "metric",
@@ -51,13 +51,19 @@ var config = {
 		},
 		{
 			module: "calendar",
-			header: "US Holidays",
+			header: "다가오는 일정",
 			position: "top_left",
 			config: {
 				calendars: [
 					{
+						// 대한민국 공휴일
+						url: "https://calendar.google.com/calendar/ical/ko.south_korea%23holiday%40group.v.calendar.google.com/public/basic.ics"
+					}
+					, {
+						// iot-maker 일정
 						symbol: "calendar-check",
-						url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"					}
+						url: "https://calendar.google.com/calendar/ical/iot191210%40gmail.com/public/basic.ics"
+					}
 				]
 			}
 		},
@@ -104,4 +110,4 @@ var config = {
 };
 
 /*************** DO NOT EDIT THE LINE BELOW ***************/
-if (typeof module !== "undefined") {module.exports = config;}
+if (typeof module !== "undefined") { module.exports = config; }
