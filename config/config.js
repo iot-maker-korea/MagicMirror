@@ -99,6 +99,12 @@ var config = {
 						title: "New York Times",
 						url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
 					}
+					, {
+						title: "JTBC"
+						, url: "http://fs.jtbc.joins.com//RSS/newsflash.xml"
+						, url: "http://fs.jtbc.joins.com/RSS/economy.xml"
+						, ref: 'http://news.jtbc.joins.com/Etc/RssService.aspx' // rss list
+					}
 				],
 				showSourceTitle: true,
 				showPublishDate: true,
