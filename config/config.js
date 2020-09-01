@@ -13,7 +13,7 @@ var user_config = {
 		location: "Daejeon",
 		locationID: "1835224", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
 		appid: "719359d9e7443b3d875a770e49902314" //iot-maker api key
-	};
+	}
 	, calendar_config : [
 		{url: "https://calendar.google.com/calendar/ical/ko.south_korea%23holiday%40group.v.calendar.google.com/public/basic.ics"} // 대한민국 공휴일
 		, { symbol: "calendar-check", url: "https://calendar.google.com/calendar/ical/iot191210%40gmail.com/public/basic.ics"} // iot-maker 일정
