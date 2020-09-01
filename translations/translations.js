@@ -33,7 +33,7 @@ var translations = {
 	hu: "translations/hu.json", // Hungarian
 	is: "translations/is.json", // Icelandic
 	et: "translations/et.json", // Estonian
-	ko: "translations/kr.json", // Korean
+	ko: "translations/kr.json", // Korean (ko)
 	ro: "translations/ro.json", // Romanian
 	cy: "translations/cy.json", // Welsh (Cymraeg)
 	bg: "translations/bg.json", // Bulgarian
