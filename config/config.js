@@ -8,6 +8,26 @@
  *
  */
 
+var user_config = {
+	weather_config : {
+		location: "Daejeon",
+		locationID: "1835224", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
+		appid: "719359d9e7443b3d875a770e49902314" //iot-maker api key
+	};
+	, calendar_config : [
+		{url: "https://calendar.google.com/calendar/ical/ko.south_korea%23holiday%40group.v.calendar.google.com/public/basic.ics"} // 대한민국 공휴일
+		, { symbol: "calendar-check", url: "https://calendar.google.com/calendar/ical/iot191210%40gmail.com/public/basic.ics"} // iot-maker 일정
+	]
+	, news_config : [
+		{
+			title: "JTBC"
+			, url: "http://fs.jtbc.joins.com//RSS/newsflash.xml"
+			, url: "http://fs.jtbc.joins.com/RSS/economy.xml"
+			, ref: 'http://news.jtbc.joins.com/Etc/RssService.aspx' // rss list
+		}
+	]
+};
+
 var config = {
 	address: "localhost", 	// Address to listen on, can be:
 	// - "localhost", "127.0.0.1", "::1" to listen on loopback interface
@@ -54,17 +74,7 @@ var config = {
 			header: "다가오는 일정",
 			position: "top_left",
 			config: {
-				calendars: [
-					{
-						// 대한민국 공휴일
-						url: "https://calendar.google.com/calendar/ical/ko.south_korea%23holiday%40group.v.calendar.google.com/public/basic.ics"
-					}
-					, {
-						// iot-maker 일정
-						symbol: "calendar-check",
-						url: "https://calendar.google.com/calendar/ical/iot191210%40gmail.com/public/basic.ics"
-					}
-				]
+				calendars: user_config.calendar_config
 			}
 		},
 		{
@@ -74,38 +84,19 @@ var config = {
 		{
 			module: "currentweather",
 			position: "top_right",
-			config: {
-				location: "Daejeon",
-				locationID: "1835224", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				appid: "719359d9e7443b3d875a770e49902314" //iot-maker api key
-			}
+			config: user_config.weather_config
 		},
 		{
 			module: "weatherforecast",
 			position: "top_right",
 			header: "Weather Forecast",
-			config: {
-				location: "Daejeon",
-				locationID: "1835224", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				appid: "719359d9e7443b3d875a770e49902314" //iot-maker api key
-			}
+			config: user_config.weather_config
 		},
 		{
 			module: "newsfeed",
 			position: "bottom_bar",
 			config: {
-				feeds: [
-					{
-						title: "New York Times",
-						url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
-					}
-					, {
-						title: "JTBC"
-						, url: "http://fs.jtbc.joins.com//RSS/newsflash.xml"
-						, url: "http://fs.jtbc.joins.com/RSS/economy.xml"
-						, ref: 'http://news.jtbc.joins.com/Etc/RssService.aspx' // rss list
-					}
-				],
+				feeds: user_config.news_config,
 				showSourceTitle: true,
 				showPublishDate: true,
 				broadcastNewsFeeds: true,
