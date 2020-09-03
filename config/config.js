@@ -26,6 +26,34 @@ var user_config = {
 			, ref: 'http://news.jtbc.joins.com/Etc/RssService.aspx' // rss list
 		}
 	]
+	, compliments_config:{
+		updateInterval: 50000
+		, morningStartTime: 7
+		, compliments: {
+			anytime: ["Hey there sexy!"]
+			, morning: ["Good morning, handsome!", "Enjoy your day!", "How was your sleep?"]
+			, afternoon: ["Hello, beauty!", "You look sexy!", "Looking good today!"]
+			, evening: ["Wow, you look hot!", "You look nice!", "Hi, sexy!"]
+			, day_sunny: ['day_sunny']
+			, day_cloudy: ['day_cloudy']
+			, cloudy: ['cloudy']
+			, cloudy_windy: ['cloudy_windy']
+			, showers: ['showers']
+			, rain: ['rain']
+			, thunderstorm: ['thunderstorm']
+			, snow: ['snow']
+			, fog: ['fog']
+			, night_clear: ['night_clear']
+			, night_cloudy: ['night_cloudy']
+			, night_showers: ['night_showers']
+			, night_rain: ['night_rain']
+			, night_thunderstorm: ['night_thunderstorm']
+			, night_snow: ['night_snow']
+			, night_alt_cloudy_windy: ['night_alt_cloudy_windy']
+			, "....-01-01": ["Happy new year!"]
+			, "....-10-31": ["Happy Halloween!"]
+		}
+	}
 };
 
 var config = {
@@ -79,7 +107,8 @@ var config = {
 		},
 		{
 			module: "compliments",
-			position: "lower_third"
+			position: "lower_third",
+			config: user_config.compliments_config
 		},
 		{
 			module: "currentweather",
