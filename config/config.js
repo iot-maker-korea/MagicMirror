@@ -107,6 +107,8 @@ var config = {
 			position: "top_left",
 			config: {
 				calendars: user_config.calendar_config
+				, maximumNumberOfDays: 3
+				, showLocation: true
 			}
 		},
 		{
