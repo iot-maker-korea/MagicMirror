@@ -159,7 +159,14 @@ Module.register("newsfeed", {
 			if (!this.config.showFullArticle) {
 				var title = document.createElement("div");
 				title.className = "newsfeed-title bright medium light" + (!this.config.wrapTitle ? " no-wrap" : "");
-				title.innerHTML = this.newsItems[this.activeItem].title;
+				// title.innerHTML = this.newsItems[this.activeItem].title;
+
+				// Adding a tag
+				let htmlStr = '<a href="' + this.newsItems[this.activeItem].url + '" target="_blank" style="color: white; text-decoration:none">';
+				htmlStr += this.newsItems[this.activeItem].title;
+				htmlStr += '</a>';
+				title.innerHTML = htmlStr;
+
 				wrapper.appendChild(title);
 			}
 
