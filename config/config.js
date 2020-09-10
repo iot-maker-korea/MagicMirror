@@ -20,8 +20,12 @@ var user_config = {
 	]
 	, news_config : [
 		{
-			title: "JTBC"
+			title: "JTBC 속보"
 			, url: "http://fs.jtbc.joins.com//RSS/newsflash.xml"
+			, ref: 'http://news.jtbc.joins.com/Etc/RssService.aspx' // rss list
+		}
+		, {
+			title: "JTBC 경제"
 			, url: "http://fs.jtbc.joins.com/RSS/economy.xml"
 			, ref: 'http://news.jtbc.joins.com/Etc/RssService.aspx' // rss list
 		}
